@@ -32,7 +32,7 @@ p, ul{
     max-width: calc(30vh / 0.53);
     margin: 0 auto;
     border: 15px solid #000;
-    border-radius: 20px;
+    min-height: 
 }
 
 .header {
@@ -45,7 +45,6 @@ p, ul{
     /* padding: 30px; */
 }
 
-
 .score-bar {
     background-color: #000;
     color: #fff;
@@ -55,7 +54,7 @@ p, ul{
 .quiz-questions {
     background-color: #d40000;
     color: #fff;
-    max-height: 70vh;
+    height: 50vh;
     padding: 10px 15px;
 }
 
@@ -84,8 +83,9 @@ p, ul{
 .btn    {
     display: block;
     margin: 30px auto;
-    font-size: 20px;
+    font-size: 30px;
     background-color: orange;
+    border: 5px solid #000;
     border-radius: 7px;
     padding: 5px;
     min-width: 100px;
