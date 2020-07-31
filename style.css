@@ -59,7 +59,7 @@ p, ul   {
 .quiz-questions {
     background-color: #A80000;
     color: #fff;
-    height: 45vh;
+    /* height: 50vh; */
     padding: 20px 30px;
 }
 
@@ -94,14 +94,14 @@ p, ul   {
 }
 
 .question   {
-    height: 13vh;
+    /* height: 13vh; */
 }
 
 .answers-form   {
-    height: 20vh;
+    /* height: 17vh; */
 }
 
 .comment-section    {
     display: none;
-    height: 12vh;
+    /* height: 12vh; */
 }
