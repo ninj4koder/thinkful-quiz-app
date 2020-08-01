@@ -64,33 +64,35 @@ let currentQuestionIndex = 0;   //current question indec - used  in the question
 
             /* ### string templates below ### */
 
-let correctAnswer = `${quizDataBase[currentQuestionIndex].answers[quizDataBase[currentQuestionIndex].correctAnswerIndex]}`;
+function getCorrectAnswer() {
+  return `${quizDataBase[currentQuestionIndex].answers[quizDataBase[currentQuestionIndex].correctAnswerIndex]}`;
+}
 
 
-let questionsForm =     //make a new version using .map() or .each() method...
-`<form>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" required>
-        <label for="red">${quizDataBase[currentQuestionIndex].answers[0]}</label><br>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[1]}" required>
-        <label for="blue">${quizDataBase[currentQuestionIndex].answers[1]}</label><br>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[2]}" required>
-        <label for="white">${quizDataBase[currentQuestionIndex].answers[2]}</label><br>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[3]}" required>
-        <label for="white">${quizDataBase[currentQuestionIndex].answers[3]}</label><br>
-    <button type="submit" class="btn" id="js-check-answer-btn">Submit</button>
-</form>`;
+function questionsForm()  {     //make  a new version using .map() or .each() method...
+  $('.answers-form').html(`<form>
+      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" required>
+          <label for="red">${quizDataBase[currentQuestionIndex].answers[0]}</label><br>
+      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[1]}" required>
+          <label for="blue">${quizDataBase[currentQuestionIndex].answers[1]}</label><br>
+      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[2]}" required>
+          <label for="white">${quizDataBase[currentQuestionIndex].answers[2]}</label><br>
+      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[3]}" required>
+          <label for="white">${quizDataBase[currentQuestionIndex].answers[3]}</label><br>
+      <button type="submit" class="btn" id="js-check-answer-btn">Submit</button>
+  </form>`);
+}
 
 let nextButton = `<button type="button" class="btn" id="js-next-question-btn">Next</button>`;
 
-let quizLayout = 
-`<div class="question">
+function quizLayout() { 
+return `<div class="question">
 <h2>Question ${questionNumber}</h2>
-<p>${quizDataBase[0].question}</p>
+<p>${quizDataBase[currentQuestionIndex].question}</p>
 </div>
 <div class="answers-form">
-${questionsForm}
 </div>
 <div class="comment-section">
 <p>Put a comment here.</p>
 </div> `;
-
+}

@@ -26,6 +26,7 @@ function verifyAnswer() {
         event.preventDefault();
         console.log('VerifyAnswer function ran');
         $('#js-check-answer-btn').replaceWith(nextButton);
+        let correctAnswer = getCorrectAnswer();
         let userAnswer = $('input:checked').val();
         if (userAnswer === correctAnswer)   {
             score++;
@@ -36,7 +37,7 @@ function verifyAnswer() {
             .fadeIn();
         } else  {
             $('.comment-section')
-            .html(`<p>Bummer! Are you afraid of the bats? Correct answer is: <span class="correct-answer">"${correctAnswer}"</span></p>
+            .html(`<p>Are you afraid of the bats? You're wrong! Correct answer is: <span class="correct-answer">"${correctAnswer}"</span></p>
             <p>${quizDataBase[currentQuestionIndex].comment}</p>`)
             .fadeIn();
         }
@@ -50,10 +51,13 @@ function handleScoreBarVisibility()   {     // hides/unhides score bar results
 function render()   {    // this function conditionally regenerates the view each time the store is updated
     $('#js-question-number').html(`${questionNumber}/${quizDataBase.length}`);
     updateScore(score);
-    $('.js-main-screen').html(quizLayout);
+    $('.js-main-screen').html(quizLayout());
+    questionsForm();
 }
 
 function goToNextScreen() {
+    //add if statements
+
     $('.quiz-questions').on('click', '#js-next-question-btn', function(event)   {
         console.log('goToNextScreen function ran');
         increaseQuestion();

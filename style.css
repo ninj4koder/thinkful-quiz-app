@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Grenze+Gotisch:wght@600&display=swap');
 
 /*  font-family: 'Barlow Semi Condensed', sans-serif;
-font-family: 'Grenze Gotisch', cursive;  */
+font-family: 'Grenze Gotisch', cursive;  */ 
 
 * {
     box-sizing: border-box;
@@ -11,12 +11,11 @@ font-family: 'Grenze Gotisch', cursive;  */
 
 h1  {
     margin-top: calc(20%);
-    font-family: 'Grenze Gotisch', cursive;
     font-size: 60px;
     text-align: center;
 }
 
-p, h2, h3, ul, button, form   {
+p, h1, h2, h3, ul, button, form   {
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
