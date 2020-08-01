@@ -1,6 +1,7 @@
 $(function() {
     mainMenuStart();
     verifyAnswer();
+    goToNextScreen()
 });
 
 function updateScore(currentScore)  {
@@ -12,7 +13,6 @@ function mainMenuStart() {          //handles click event for the button on the 
     $('.js-main-menu-btn').click(function(event) {      //main menu button event
         handleScoreBarVisibility();
         render();
-        console.log('button clicked');
     })
 }
 
@@ -24,15 +24,19 @@ function increaseQuestion() {
 function verifyAnswer() {
     $('.quiz-questions').on('submit', function(event)   {
         event.preventDefault();
-        console.log('The submit button says: "You touched me!"');
-        let userAnswer = "Bane";
-        console.log(typeof(userAnswer), typeof(correctAnswer));
-        let selected = $('input:checked');
-        if (true)   {
+        console.log('VerifyAnswer function ran');
+        $('#js-check-answer-btn').replaceWith(nextButton);
+        let userAnswer = $('input:checked').val();
+        if (userAnswer === correctAnswer)   {
             score++;
             updateScore(score);            
             $('.comment-section')
-            .html(`<p>Correct! The correct answer is: <span class="correct-answer">"${correctAnswer}"</span></p>
+            .html(`<p>KA-POW! You are right! Correct answer is: <span class="correct-answer">"${correctAnswer}"</span></p>
+            <p>${quizDataBase[currentQuestionIndex].comment}</p>`)
+            .fadeIn();
+        } else  {
+            $('.comment-section')
+            .html(`<p>Bummer! Are you afraid of the bats? Correct answer is: <span class="correct-answer">"${correctAnswer}"</span></p>
             <p>${quizDataBase[currentQuestionIndex].comment}</p>`)
             .fadeIn();
         }
@@ -47,6 +51,32 @@ function render()   {    // this function conditionally regenerates the view eac
     $('#js-question-number').html(`${questionNumber}/${quizDataBase.length}`);
     updateScore(score);
     $('.js-main-screen').html(quizLayout);
+}
+
+function goToNextScreen() {
+    $('.quiz-questions').on('click', '#js-next-question-btn', function(event)   {
+        console.log('goToNextScreen function ran');
+        increaseQuestion();
+        console.log(questionNumber);
+        render();
+        // $('#js-check-answer-btn').replaceWith(nextButton);
+        // let userAnswer = $('input:checked').val();
+        // console.log(userAnswer);
+        // if (userAnswer === correctAnswer)   {
+        //     score++;
+        //     updateScore(score);            
+        //     $('.comment-section')
+        //     .html(`<p>KA-POW! You are right! Correct answer is: <span class="correct-answer">"${correctAnswer}"</span></p>
+        //     <p>${quizDataBase[currentQuestionIndex].comment}</p>`)
+        //     .fadeIn();
+        // } else  {
+        //     $('.comment-section')
+        //     .html(`<p>Bummer! Are you afraid of the bats? Correct answer is: <span class="correct-answer">"${correctAnswer}"</span></p>
+        //     <p>${quizDataBase[currentQuestionIndex].comment}</p>`)
+        //     .fadeIn();
+        // }
+    })
+
 }
 
 function startOver()  {     //  Resets variables to the starting point, used when user wants to take the test again

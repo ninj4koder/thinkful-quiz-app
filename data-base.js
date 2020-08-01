@@ -57,8 +57,8 @@ let quizDataBase = [
 ]
 
 let score = 0;    //points gained by the user
-let questionNumber = 6;   //question number - used for the score bar display
-let currentQuestionIndex = 3;   //current question indec - used  in the question template, unlike questionNumber above starts from a 0
+let questionNumber = 1;   //question number - used for the score bar display
+let currentQuestionIndex = 0;   //current question indec - used  in the question template, unlike questionNumber above starts from a 0
 
 /*  what's with the initialization thing??? - I had to move all variables below the questions. */
 
@@ -67,18 +67,20 @@ let currentQuestionIndex = 3;   //current question indec - used  in the question
 let correctAnswer = `${quizDataBase[currentQuestionIndex].answers[quizDataBase[currentQuestionIndex].correctAnswerIndex]}`;
 
 
-let questionsForm = 
+let questionsForm =     //make a new version using .map() or .each() method...
 `<form>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]} required">
+    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" required>
         <label for="red">${quizDataBase[currentQuestionIndex].answers[0]}</label><br>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[1]} required">
+    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[1]}" required>
         <label for="blue">${quizDataBase[currentQuestionIndex].answers[1]}</label><br>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[2]} required">
+    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[2]}" required>
         <label for="white">${quizDataBase[currentQuestionIndex].answers[2]}</label><br>
-    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[3]} required">
+    <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[3]}" required>
         <label for="white">${quizDataBase[currentQuestionIndex].answers[3]}</label><br>
     <button type="submit" class="btn" id="js-check-answer-btn">Submit</button>
 </form>`;
+
+let nextButton = `<button type="button" class="btn" id="js-next-question-btn">Next</button>`;
 
 let quizLayout = 
 `<div class="question">
