@@ -60,39 +60,14 @@ let score = 0;    //points gained by the user
 let questionNumber = 1;   //question number - used for the score bar display
 let currentQuestionIndex = 0;   //current question indec - used  in the question template, unlike questionNumber above starts from a 0
 
-/*  what's with the initialization thing??? - I had to move all variables below the questions. */
-
             /* ### string templates below ### */
 
-function getCorrectAnswer() {
-  return `${quizDataBase[currentQuestionIndex].answers[quizDataBase[currentQuestionIndex].correctAnswerIndex]}`;
-}
-
-
-function questionsForm()  {     //make  a new version using .map() or .each() method...
-  $('.answers-form').html(`<form>
-      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" required>
-          <label for="red">${quizDataBase[currentQuestionIndex].answers[0]}</label><br>
-      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[1]}" required>
-          <label for="blue">${quizDataBase[currentQuestionIndex].answers[1]}</label><br>
-      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[2]}" required>
-          <label for="white">${quizDataBase[currentQuestionIndex].answers[2]}</label><br>
-      <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[3]}" required>
-          <label for="white">${quizDataBase[currentQuestionIndex].answers[3]}</label><br>
-      <button type="submit" class="btn" id="js-check-answer-btn">Submit</button>
-  </form>`);
-}
-
+let questionsCount = quizDataBase.length;
 let nextButton = `<button type="button" class="btn" id="js-next-question-btn">Next</button>`;
+let finishButton = `<button type="button" class="btn" id="js-next-question-btn">Summary</button>`;
 
-function quizLayout() { 
-return `<div class="question">
-<h2>Question ${questionNumber}</h2>
-<p>${quizDataBase[currentQuestionIndex].question}</p>
-</div>
-<div class="answers-form">
-</div>
-<div class="comment-section">
-<p>Put a comment here.</p>
-</div> `;
-}
+
+// function formMaker() {
+// return `<input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" checked required> 
+// <label for="red">${quizDataBase[currentQuestionIndex].answers[0]}</label><br>`;
+// }
