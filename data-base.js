@@ -63,11 +63,5 @@ let currentQuestionIndex = 0;   //current question indec - used  in the question
             /* ### string templates below ### */
 
 let questionsCount = quizDataBase.length;
-let nextButton = `<button type="button" class="btn" id="js-next-question-btn">Next</button>`;
-let finishButton = `<button type="button" class="btn" id="js-next-question-btn">Summary</button>`;
-
-
-// function formMaker() {
-// return `<input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" checked required> 
-// <label for="red">${quizDataBase[currentQuestionIndex].answers[0]}</label><br>`;
-// }
+let nextButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Next</button>`;
+let finishButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Summary</button>`;

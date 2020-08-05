@@ -8,24 +8,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="container">
-            <header class="header">
-                <!-- You can put a text here instead of a background if you want to look it more rough -->
-            </header>
-            <main>
-                <div class="score-bar">                   <!--  Score/question bar  -->
-                    <div class="align-left hidden">
-                        <h2>Question <span id="js-question-number">No</span></h2>                        
+        <div class='placeholder'>
+            <div class="container">
+                <header class="header" role="img" aria-label="Do you know your Batman Villains quiz">
+                    <!-- You can put a text here instead of a background if you want to look it more rough -->
+                </header>
+                <main role="main">
+                    <div class="score-bar">                   <!--  Score/question bar  -->
+                        <div class="align-left hidden">
+                            <h2>Question <span id="js-question-number">No</span></h2>                        
+                        </div>
+                        <div class="align-right hidden">
+                            <h2>Score: <span id="js-score"></span></h2>
+                        </div>
                     </div>
-                    <div class="align-right hidden">
-                        <h2>Score: <span id="js-score"></span></h2>
+                    <div class="quiz-questions js-main-screen">                                     <!--  main quiz section starts here  -->
+                        <h1>The Bat test</h1>
+                        <button class="btn js-main-menu-btn" role="button">Start quiz</button>
                     </div>
-                </div>
-                <div class="quiz-questions js-main-screen">                                     <!--  main quiz section starts here  -->
-                    <h1>The Bat test</h1>
-                    <button class="btn js-main-menu-btn">Start quiz</button>
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="index.js"></script>        

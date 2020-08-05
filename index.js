@@ -16,8 +16,8 @@ function updateScore(currentScore)  {
     $('#js-score').html(`${currentScore}`)
 }
 
-function verifyAnswer() {
-    $('.quiz-questions').on('submit', function(event)   {
+function verifyAnswer() {               //function handles everything regarding question generating, including testing if it should display a question
+    $('.quiz-questions').on('submit', function(event)   {             //or summary, if question was correct or wrong and prints comments respectively
         event.preventDefault();
         if (questionNumber === questionsCount)  {
             $('#js-check-answer-btn').replaceWith(finishButton);
@@ -52,7 +52,7 @@ function handleNextQuestion() {
     })
 }
 
-function startOverButton()  {
+function startOverButton()  {       //resets variables and app layout
     $('.quiz-questions').on('click', '#js-start-over-btn', function(event) {
         startOver();
         toggleScoreBarVisibility();
@@ -65,9 +65,13 @@ function increasingQuestionStats() {
     currentQuestionIndex++;
 }
 
-function questionsForm()  {     //make  a new version using .map() or .each() method...
-    $('.answers-form').html(`<form>
-        <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" required> 
+function questionsForm()  {     //Generates whole form containing question with all answers
+    $('.answers-form').html(
+    `<form>
+        <fieldset>
+            <legend class="questionText">${quizDataBase[currentQuestionIndex].question}</legend>
+        </fieldset>
+        <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[0]}" checked required> 
             <label for="red">${quizDataBase[currentQuestionIndex].answers[0]}</label><br>
         <input name="answer" type="radio" value="${quizDataBase[currentQuestionIndex].answers[1]}" required>
             <label for="blue">${quizDataBase[currentQuestionIndex].answers[1]}</label><br>
@@ -79,7 +83,7 @@ function questionsForm()  {     //make  a new version using .map() or .each() me
     </form>`);
   }
 
-function getCorrectAnswer() {
+function getCorrectAnswer() {           //function gets correct answer from the data base
     return `${quizDataBase[currentQuestionIndex].answers[quizDataBase[currentQuestionIndex].correctAnswerIndex]}`;
   }
 
@@ -87,7 +91,7 @@ function toggleScoreBarVisibility()   {     // hides/unhides score bar results
     $('.score-bar div').toggleClass('hidden');
 }
 
-function render()   {    // this function conditionally regenerates the view each time the store is updated
+function render()   {    // function conditionally regenerates the view each time the store is updated
     $('#js-question-number').html(`${questionNumber}/${quizDataBase.length}`);
     updateScore(score);
     $('.js-main-screen').html(quizLayout(questionNumber, currentQuestionIndex));
@@ -100,23 +104,22 @@ function startOver()  {     //  Resets variables to the starting point, used whe
     currentQuestionIndex = 0;
 }
 
-function summaryDisplay() {
+function summaryDisplay() {     //populates summary and hides score bar when the quiz is over
     toggleScoreBarVisibility();
     $('.js-main-screen').html(printSummary());
 }
 
-function printSummary() {
+function printSummary() {       //template displaying the summary
     let summary = `<h1>It's over!</h1>
     <p>You scored ${score} points!</p>
     <p>${quizDataBase.length - score} out of ${quizDataBase.length} questions where incorrect. If you want to try again, smash the button below.</p>
-    <button type="button" class="btn" id="js-start-over-btn">Start over</button>`;
+    <button type="button" class="btn" role="button" id="js-start-over-btn">Start over</button>`;
     return summary;
   }
   
-function quizLayout(questionNumber, currentQuestionIndex) {
+function quizLayout(questionNumber, currentQuestionIndex) {  //template serving single question 
     let outputLayout = `<div class="question">
     <h2>Question ${questionNumber}</h2>
-    <p>${quizDataBase[currentQuestionIndex].question}</p>
     </div>
     <div class="answers-form">
     </div>
@@ -124,5 +127,5 @@ function quizLayout(questionNumber, currentQuestionIndex) {
     <p>Put a comment here.</p>
     </div> `;
     return outputLayout;
-} 
+}
 
