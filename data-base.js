@@ -1,4 +1,5 @@
-let quizDataBase = [
+const STORE = {
+  quizDataBase: [
     {
         question: "What super villain once broke Batman's back, leaving him crippled and wheelchair-bound?",
         answers: ["Bane", "Joker", "Killer Croc", "Ra's Al Ghul"],
@@ -53,15 +54,17 @@ let quizDataBase = [
         answers: ["Joker", "Batman", "Bane", "Two-face"],
         correctAnswerIndex: 0,
         comment: "After Jason is killed by the Joker and resurrected in the Lazarus Pit, he goes on to become the Red Hood."
-      }
-]
-
-let score = 0;    //points gained by the user
-let questionNumber = 1;   //question number - used for the score bar display
-let currentQuestionIndex = 0;   //current question indec - used  in the question template, unlike questionNumber above starts from a 0
+      }],
+  score: 0,                 //points gained by the user
+  questionNumber: 1,        //question number - used for the score bar display
+  currentQuestionIndex: 0,   //current question index - used  in the question template, unlike questionNumber above starts from a 0
+  questionsCount: 0,         //needs to be set up after initializing store variable
+  nextButton: `<button type="button" role="button" class="btn" id="js-next-question-btn">Next</button>`,
+  finishButton: `<button type="button" role="button" class="btn" id="js-next-question-btn">Summary</button>`
+  }
 
             /* ### string templates below ### */
 
-let questionsCount = quizDataBase.length;
-let nextButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Next</button>`;
-let finishButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Summary</button>`;
+// let questionsCount = quizDataBase.length;
+// let nextButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Next</button>`;
+// let finishButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Summary</button>`;
