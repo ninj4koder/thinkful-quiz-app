@@ -59,12 +59,4 @@ const STORE = {
   questionNumber: 1,        //question number - used for the score bar display
   currentQuestionIndex: 0,   //current question index - used  in the question template, unlike questionNumber above starts from a 0
   questionsCount: 0,         //needs to be set up after initializing store variable
-  nextButton: `<button type="button" role="button" class="btn" id="js-next-question-btn">Next</button>`,
-  finishButton: `<button type="button" role="button" class="btn" id="js-next-question-btn">Summary</button>`
   }
-
-            /* ### string templates below ### */
-
-// let questionsCount = quizDataBase.length;
-// let nextButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Next</button>`;
-// let finishButton = `<button type="button" role="button" class="btn" id="js-next-question-btn">Summary</button>`;
